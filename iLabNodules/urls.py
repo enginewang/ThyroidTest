@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^load_img/$', img_proc.load_img, name='load_img'),
     url(r'^load_nodules/$', img_proc.load_nodules, name='load_nodules'),
     url(r'^upload/$', upload.upload, name='upload'),
+    url(r'^report/$', views.print_report, name='print_report')
 ]

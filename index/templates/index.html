@@ -83,7 +83,8 @@
 
         <div style="bottom: 2%; position: absolute; height: fit-content;">
                 <button onclick="AITreat()" id="AITreat" href ="AI" class="button button-rounded button-small" style="font-size: medium;">AI诊断</button>
-                <button onclick="printBtn()" id="printBtn" class="button button-rounded button-small" style="font-size: medium;"> 打印 </button>
+                <button onclick="printBtn()" id="printBtn" class="button button-rounded button-small" style="font-size: medium;">
+                    <a href="{% url 'print_report' %}" style="text-decoration: none">打印</a> </button>
         </div>
 
 
