@@ -52,12 +52,17 @@ def print_report(request):
                'positionZ': '234',
                'volume': '456.65',
                'rate': '70.9%'},
+               {'name': '结点3',
+                'diameter': '16.0',
+                'positionX': '290',
+                'positionY': '458',
+                'positionZ': '544',
+                'volume': '65.23',
+                'rate': '10.3%'},
               ]
+    pics = ["index/static/image/result_1.png", "index/static/image/result_2.png", "index/static/image/result_3.png"]
     p = canvas.Canvas(response)
     p.setFont('Bold', 18, leading=None)
-    # report = []
-    # report_title = '<para autoLeading="off" fontSize=15 align=center><b><font face="PingFang">检查报告</font></b><br/><br/><br/></para>'
-    # report.append(Paragraph(report_title, normalStyle))
     p.drawCentredString(105 * mm, 275 * mm, "检查报告")
     p.line(20 * mm, 265 * mm, 190 * mm, 265 * mm)
     p.setFont('Regular', 12, leading=None)
@@ -79,6 +84,15 @@ def print_report(request):
         p.drawCentredString(95 * mm, bottomY * mm, "(" + nodule['positionX'] + "," + nodule['positionY'] + "," + nodule['positionZ'] + ")")
         p.drawCentredString(130 * mm, bottomY * mm, nodule['volume'])
         p.drawCentredString(165 * mm, bottomY * mm, nodule['rate'])
+    if bottomY > 200:
+        p.line(0 * mm, 200 * mm, 210 * mm, 200 * mm)
+        bottomY = 200
+    else:
+        p.line(0 * mm, (bottomY - 10) * mm, 210 * mm, (bottomY - 10) * mm)
+
+    p.drawImage(pics[0], 20 * mm, (bottomY - 60) * mm, 50 * mm, 50 * mm)
+    p.drawImage(pics[1], 80 * mm, (bottomY - 60) * mm, 50 * mm, 50 * mm)
+    p.drawImage(pics[2], 140 * mm, (bottomY - 60) * mm, 50 * mm, 50 * mm)
 
     p.showPage()
     p.save()
