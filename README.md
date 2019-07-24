@@ -11,6 +11,7 @@ Scipy-1.1.0
 Pillow-5.2.0
 numpy-1.15.0
 joblib-0.12.2
+reportlab  3.5.23
 
 
 使用方法：
